@@ -50,8 +50,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					ch = va_arg(vl, int);
-					putchar(ch);
-					ret++;
+					ret += putchar(ch);
 					break;
 				case 's':
 					str = va_arg(vl, char *);
@@ -99,6 +98,16 @@ int _printf(const char *format, ...)
 }
 
 /**
+ * _putchar - prints a character
+ *
+ * Return: 1 for every character printed
+ */
+int _putchar(char c)
+{
+	return(write(1, &c, 1));
+}
+
+/**
  * print_ints - prints integers
  * @n: the integer to print
  *
@@ -110,16 +119,14 @@ int print_ints(int n)
 	/* print -ve sign for negatives */
 	if (n < 0)
 	{
-		putchar('-');
+		i += _putchar('-');
 		n = n * -1;
-		i++;
 	}
 
 	/* print zero */
 	if (n == 0)
 	{
-		putchar(0);
-		i++;
+		i += _putchar(0);
 	}
 
 	/**
@@ -130,8 +137,7 @@ int print_ints(int n)
 	if (n / 10)
 		i += print_ints(n / 10);
 
-	putchar(n % 10 + '0');
-	i++;
+	i += _putchar(n % 10 + '0');
 
 	return (i);
 }
@@ -148,16 +154,14 @@ int print_unsigned_ints(unsigned int n)
 	/* print zero */
 	if (n == 0)
 	{
-		putchar(0);
-		i++;
+		i += _putchar(0);
 	}
 
 	/* Similar to function print_ints above */
 	if (n / 10)
 		i += print_ints(n / 10);
 
-	putchar(n % 10 + '0');
-	i++;
+	i += _putchar(n % 10 + '0');
 
 	return (i);
 }
@@ -184,8 +188,7 @@ int print_octal(unsigned int n)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		print_unsigned_ints(oct[j]);
-		c++;
+		c += print_unsigned_ints(oct[j]);
 	}
 
 	return (c);
@@ -252,12 +255,11 @@ int print_hex_lower(unsigned int n)
  */
 int print_str(char *str)
 {
-	int i = 0; /* count printec chars */
+	int i = 0; /* count printed chars */
 
 	while (*str != '\0')
 	{
-		putchar(*str++);
-		i++;
+		i += _putchar(*str++);
 	}
 
 	return (i);
