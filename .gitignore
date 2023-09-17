@@ -1,0 +1,8 @@
+# ignore files listed here
+
+# ignore all main files
+*main.c
+[0-9]*-main.c
+
+# ignore directory test - used for testing
+test
