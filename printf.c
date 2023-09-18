@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list vl;
 	int prnt, ret = 0;
 	char ch, *str;
-	unsigned int ui;
+	unsigned int ui, ui2;
 
 	va_start(vl, format);
 
@@ -52,6 +52,10 @@ int _printf(const char *format, ...)
 				case 'u':
 					ui = va_arg(vl, unsigned int);
 					ret += print_unsigned(ui);
+					break;
+				case 'o':
+					ui2 = va_arg(vl, unsigned int);
+					ret += print_octal(ui2);
 					break;
 			}
 			format++;

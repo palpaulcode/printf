@@ -1,5 +1,6 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 
 /**
  * _putchar - print a character
@@ -72,5 +73,33 @@ int print_unsigned(unsigned int n)
 	i += _putchar(n % 10 + '0');
 
 	return (i);
+}
+
+/**
+ * print_octal - converts unsigned int to octal
+ * and prints the octal number
+ * @n: integer to print in octal
+ *
+ * Return: no. of characters printed
+ */
+int print_octal(unsigned int n)
+{
+	int c = 0; /* count of characters printed */
+	int oct[100]; /* stores octal characters*/
+	int i = 0, j;
+
+	while (n != 0)
+	{
+		oct[i] = n % 8;
+		n = n / 8;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		c += print_unsigned(oct[j]);
+	}
+
+	return (c);
 }
 
