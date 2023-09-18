@@ -10,7 +10,8 @@
 int get_case(va_list vl, const char *format)
 {
 	int prnt, ret = 0; /* ret keeps track of printed characters */
-	char ch, *str, *addr, ch2;
+	char ch, *str, ch2;
+	void *addr;
 	unsigned int ui, ui2, ui3, ui4;
 
 	switch (*format)
@@ -49,7 +50,7 @@ int get_case(va_list vl, const char *format)
 			break;
 		case 'p':
 			addr = va_arg(vl, void *);
-			/*ret += print_addr(addr);*/
+			ret += print_addr(addr);
 			break;
 		default:
 			ret += print_unknown(format);

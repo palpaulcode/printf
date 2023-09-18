@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _putchar - print a character
@@ -9,7 +8,7 @@
  */
 int _putchar(char ch)
 {
-	return(write(1, &ch, 1));
+	return (write(1, &ch, 1));
 }
 
 /**
@@ -21,7 +20,7 @@ int _putchar(char ch)
 int print_str(char *str)
 {
 	int i, ret = 0;
-	
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		ret += _putchar(str[i]);
@@ -46,7 +45,7 @@ int print_int(int n)
 	}
 
 	if (n / 10)
-		i += print_int(n /10);
+		i += print_int(n / 10);
 
 	i += _putchar(n % 10 + '0');
 
@@ -100,88 +99,4 @@ int print_octal(unsigned int n)
 	}
 
 	return (c);
-}
-
-/**
- * print_hex_x - prints hexadecimal in lowercase
- * @n: unsigned int to print in hex
- *
- * Return: no. characters printed in the hex
- */
-int print_hex_x(unsigned int n)
-{
-	int i = 0;
-	char hex[] = "0123456789abcdef";
-	char mem[50];
-	char *str;
-
-	str = &mem[49];
-	*str = '\0';
-
-	while (n != 0)
-	{
-		*--str = hex[n % 16];
-		n = n / 16;
-	}
-	i += print_str(str);
-
-	return (i);
-}
-
-/**
- * print_hex_X - prints hexadecimal in uppercase
- * @n: unsigned int to print in hex
- *
- * Return: no. of characters printed int the hex
- */
-int print_hex_X(unsigned int n)
-{
-	int i = 0;
-	char hex[] = "0123456789ABCDEF";
-	char mem[50];
-	char *str;
-
-	str = &mem[49];
-	*str = '\0';
-
-	while (n != 0)
-	{
-		*--str = hex[n % 16];
-		n = n / 16;
-	}
-	i += print_str(str);
-
-	return (i);
-}
-
-/**
- * print_addr - print address of a given string
- * @str: string to print address of
- *
- * Return: no. of characters in the address
- */
-/*
-int print_addr(char *str)
-{
-	int i = 0; // counts characters printed
-	char addr = &str;
-
-	while (addr[i] != '\0')
-	{
-		_putchar(addr[i]);
-		i++;
-	}
-
-	return (i);
-}
-*/
-
-int print_unknown(const char *unknown)
-{
-	int i = 0;
-
-	i += _putchar(*--unknown);
-	i += _putchar(*++unknown);
-	
-	return (i);
 }
