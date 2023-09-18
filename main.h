@@ -1,6 +1,8 @@
 #ifndef PRINTF_H
 #define PRINTF_H
 
+#include <stdarg.h>
+
 int _printf(const char *format, ...);
 int _putchar(char);
 int print_str(char *);
@@ -11,5 +13,6 @@ int print_hex_x(unsigned int);
 int print_hex_X(unsigned int);
 int print_addr(char *);
 int print_unknown(const char *);
+int get_case(va_list vl, const char *);
 
 #endif /* end PRINTF_H */
