@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list vl;
 	int prnt, ret = 0;
 	char ch, *str;
-	unsigned int ui, ui2;
+	unsigned int ui, ui2, ui3, ui4;
 
 	va_start(vl, format);
 
@@ -57,6 +57,15 @@ int _printf(const char *format, ...)
 					ui2 = va_arg(vl, unsigned int);
 					ret += print_octal(ui2);
 					break;
+				case 'x':
+					ui3 = va_arg(vl, unsigned int);
+					ret += print_hex_x(ui3);
+					break;
+				case 'X':
+					ui4 = va_arg(vl, unsigned int);
+					ret += print_hex_X(ui4);
+					break;
+
 			}
 			format++;
 		}

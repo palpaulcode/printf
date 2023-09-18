@@ -1,6 +1,5 @@
 #include "main.h"
 #include <unistd.h>
-#include <stdio.h>
 
 /**
  * _putchar - print a character
@@ -102,4 +101,57 @@ int print_octal(unsigned int n)
 
 	return (c);
 }
+
+/**
+ * print_hex_x - prints hexadecimal in lowercase
+ * @n: unsigned int to print in hex
+ *
+ * Return: no. characters printed in the hex
+ */
+int print_hex_x(unsigned int n)
+{
+	int i = 0;
+	char hex[] = "0123456789abcdef";
+	char mem[50];
+	char *str;
+
+	str = &mem[49];
+	*str = '\0';
+
+	while (n != 0)
+	{
+		*--str = hex[n % 16];
+		n = n / 16;
+	}
+	i += print_str(str);
+
+	return (i);
+}
+
+/**
+ * print_hex_X - prints hexadecimal in uppercase
+ * @n: unsigned int to print in hex
+ *
+ * Return: no. of characters printed int the hex
+ */
+int print_hex_X(unsigned int n)
+{
+	int i = 0;
+	char hex[] = "0123456789ABCDEF";
+	char mem[50];
+	char *str;
+
+	str = &mem[49];
+	*str = '\0';
+
+	while (n != 0)
+	{
+		*--str = hex[n % 16];
+		n = n / 16;
+	}
+	i += print_str(str);
+
+	return (i);
+}
+
 
