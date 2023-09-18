@@ -154,4 +154,34 @@ int print_hex_X(unsigned int n)
 	return (i);
 }
 
+/**
+ * print_addr - print address of a given string
+ * @str: string to print address of
+ *
+ * Return: no. of characters in the address
+ */
+/*
+int print_addr(char *str)
+{
+	int i = 0; // counts characters printed
+	char addr = &str;
 
+	while (addr[i] != '\0')
+	{
+		_putchar(addr[i]);
+		i++;
+	}
+
+	return (i);
+}
+*/
+
+int print_unknown(const char *unknown)
+{
+	int i = 0;
+
+	i += _putchar(*--unknown);
+	i += _putchar(*++unknown);
+	
+	return (i);
+}

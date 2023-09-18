@@ -9,5 +9,7 @@ int print_unsigned(unsigned int);
 int print_octal(unsigned int);
 int print_hex_x(unsigned int);
 int print_hex_X(unsigned int);
+int print_addr(char *);
+int print_unknown(const char *);
 
 #endif /* end PRINTF_H */

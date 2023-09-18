@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list vl;
 	int prnt, ret = 0;
-	char ch, *str;
+	char ch, *str, *addr, ch2;
 	unsigned int ui, ui2, ui3, ui4;
 
 	va_start(vl, format);
@@ -41,8 +41,7 @@ int _printf(const char *format, ...)
 					ret += print_str(str);
 					break;
 				case '%':
-					ch = va_arg(vl, int);
-					ret += _putchar(ch);
+					ret += _putchar(*format);
 					break;
 				case 'd':
 				case 'i':
@@ -65,7 +64,13 @@ int _printf(const char *format, ...)
 					ui4 = va_arg(vl, unsigned int);
 					ret += print_hex_X(ui4);
 					break;
-
+				case 'p':
+					addr = va_arg(vl, void *);
+					/*ret += print_addr(addr);*/
+					break;
+				default:
+					ret += print_unknown(format);
+					break;
 			}
 			format++;
 		}
