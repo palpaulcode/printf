@@ -68,9 +68,9 @@ int _printf(const char *format, ...)
 					addr = va_arg(vl, void *);
 					/*ret += print_addr(addr);*/
 					break;
-				default:
+				/*default:
 					ret += print_unknown(format);
-					break;
+					break;*/
 			}
 			format++;
 		}
