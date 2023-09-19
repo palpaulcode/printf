@@ -4,18 +4,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <string.h>
-/**
- * struct prt - structure of type prt
- * @op: character to use ('c', 's', '%' etc)
- * @p: function pointer
- */
-typedef struct prt
-{
-	char *op;
-	int (*p)(va_list vl);
-} prt_f;
-
-int (*get_print_func(const char *))(va_list);
 
 int _printf(const char *format, ...);
 int _putchar(char);
