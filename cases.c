@@ -9,50 +9,41 @@
  */
 int get_case(va_list vl, const char *format)
 {
-	int prnt, ret = 0; /* ret keeps track of printed characters */
-	char ch, *str, ch2;
-	void *addr;
-	unsigned int ui, ui2, ui3, ui4;
+	int ret = 0; /* ret keeps track of printed characters */
 
 	switch (*format)
 	{
 		case 'c':
-			ch = va_arg(vl, int);
-			ret += _putchar(ch);
+			ret += print_char(vl);
 			break;
 		case 's':
-			str = va_arg(vl, char *);
-			ret += print_str(str);
+			ret += print_str(vl);
 			break;
 		case '%':
 			ret += _putchar(*format);
 			break;
 		case 'd':
 		case 'i':
-			prnt = va_arg(vl, int);
-			ret += print_int(prnt);
+			ret += print_int(vl);
 			break;
 		case 'u':
-			ui = va_arg(vl, unsigned int);
-			ret += print_unsigned(ui);
+			ret += print_unsigned(vl);
 			break;
 		case 'o':
-			ui2 = va_arg(vl, unsigned int);
-			ret += print_octal(ui2);
+			ret += print_octal(vl);
 			break;
 		case 'x':
-			ui3 = va_arg(vl, unsigned int);
-			ret += print_hex_x(ui3);
+			ret += print_hex_x(vl);
 			break;
 		case 'X':
-			ui4 = va_arg(vl, unsigned int);
-			ret += print_hex_X(ui4);
+			ret += print_hex_X(vl);
 			break;
 		case 'p':
-			addr = va_arg(vl, void *);
-			ret += print_addr(addr);
+			/* called from helper file directly*/
+			ret += print_address(vl);
 			break;
 		default:
+			/* called directly from helper file*/
 			ret += print_unknown(format);
 			break;
 	}
