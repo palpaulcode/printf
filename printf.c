@@ -12,9 +12,7 @@
 int _printf(const char *format, ...)
 {
 	va_list vl;
-	int prnt, ret = 0;
-	char ch, *str, *addr, ch2;
-	unsigned int ui, ui2, ui3, ui4;
+	int ret = 0;
 
 	va_start(vl, format);
 

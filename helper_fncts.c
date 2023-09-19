@@ -48,7 +48,7 @@ int print_integer(int n)
  */
 int print_unsigned_int(unsigned int n)
 {
-	int i;
+	int i = 0;
 
 	if (n == 0)
 		i += _putchar(0);

@@ -44,6 +44,8 @@ int print_addr(va_list vl)
 	addr = va_arg(vl, void *);
 
 	i += print_address(addr);
+
+	return (i);
 }
 
 /**
@@ -54,7 +56,7 @@ int print_addr(va_list vl)
  */
 int print_char(va_list vl)
 {
-	int i;
+	int i = 0;
 	char ch;
 
 	ch = va_arg(vl, int);
