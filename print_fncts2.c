@@ -36,6 +36,12 @@ int print_hex_X(va_list vl)
 	return (i);
 }
 
+/**
+ * print_addr - prints an address
+ * @vl: va_list argument
+ *
+ * Return: count of printed characters
+ */
 int print_addr(va_list vl)
 {
 	int i = 0;
