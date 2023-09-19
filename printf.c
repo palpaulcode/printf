@@ -23,8 +23,8 @@ int _printf(const char *format, ...)
 			ret += _putchar(*format);
 			format++;
 		}
-
-		if (*format == '%')
+		else
+		/*if (*format == '%')*/
 		{
 			format++;
 			ret += get_case(vl, format);
