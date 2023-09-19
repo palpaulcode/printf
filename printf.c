@@ -21,15 +21,13 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			ret += _putchar(*format);
+			format++;
 		}
-		format++;
 
 		if (*format == '%')
 		{
 			format++;
-
 			ret += get_case(vl, format);
-
 			format++;
 		}
 	}
