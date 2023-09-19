@@ -26,7 +26,7 @@ int get_case(va_list vl, const char *format)
 		case 'i':
 			ret += print_int(vl);
 			break;
-		/*case 'u':
+		case 'u':
 			ret += print_unsigned(vl);
 			break;
 		case 'o':
@@ -39,13 +39,11 @@ int get_case(va_list vl, const char *format)
 			ret += print_hex_X(vl);
 			break;
 		case 'p':
-			// called from helper file directly
 			ret += print_address(vl);
 			break;
 		default:
-			// called directly from helper file
 			ret += print_unknown(format);
-			break;*/
+			break;
 	}
 	return (ret);
 }
