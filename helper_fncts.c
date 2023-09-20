@@ -10,6 +10,9 @@ int print_string(char *str)
 {
 	int i, ret = 0;
 
+	if (str == NULL)
+		return (-1);
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		ret += _putchar(str[i]);
