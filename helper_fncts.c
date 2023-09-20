@@ -57,7 +57,7 @@ int print_integer(int n)
  *
  * Return: no. of characters printed
  */
-int print_unsigned_int((unsigned int) n)
+int print_unsigned_int(unsigned int n)
 {
 	int i = 0;
 
