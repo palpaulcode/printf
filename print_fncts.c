@@ -24,7 +24,15 @@ int print_str(va_list vl)
 
 	str  = va_arg(vl, char *);
 
-	i += print_string(str);
+	if (str != NULL)
+	{
+		i += print_string(str);
+	}
+	else
+	{
+		str = "(null)";
+		i += print_string(str);
+	}
 
 	return (i);
 }
