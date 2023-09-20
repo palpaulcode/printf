@@ -52,12 +52,12 @@ int print_integer(int n)
 }
 
 /**
- * print_unsigned_int - prints unsigned int
+ * print_unsgnd_int - prints unsigned int
  * @n: the unsigned int to print
  *
  * Return: no. of characters printed
  */
-int print_unsigned_int(unsigned int n)
+int print_unsgnd_int(unsigned int n)
 {
 	int i = 0;
 
@@ -65,7 +65,7 @@ int print_unsigned_int(unsigned int n)
 		i += _putchar(0);
 
 	if (n / 10)
-		i += print_unsigned_int(n / 10);
+		i += print_unsgnd_int(n / 10);
 
 	i += _putchar(n % 10 + '0');
 
@@ -94,7 +94,7 @@ int print_octal_nums(unsigned int n)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		c += print_unsigned_int(oct[j]);
+		c += print_unsgnd_int(oct[j]);
 	}
 
 	return (c);

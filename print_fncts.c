@@ -47,19 +47,19 @@ int print_int(va_list vl)
 }
 
 /**
- * print_unsigned - print unsigned integers for case 'u'
+ * print_unsgnd - print unsigned integers for case 'u'
  * @vl: va_list
  *
  * Return: no. of printed characters in the unsigned int
  */
-int print_unsigned(va_list vl)
+int print_unsgnd(va_list vl)
 {
 	int i = 0;
 	unsigned int n;
 
 	n = va_arg(vl, unsigned int);
 
-	i += print_unsigned_int(n);
+	i += print_unsgnd_int(n);
 
 	return (i);
 }

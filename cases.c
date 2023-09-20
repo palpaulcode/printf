@@ -27,7 +27,7 @@ int get_case(va_list vl, const char *format)
 			ret += print_int(vl);
 			break;
 		case 'u':
-			ret += print_unsigned(vl);
+			ret += print_unsgnd(vl);
 			break;
 		case 'o':
 			ret += print_octal(vl);
