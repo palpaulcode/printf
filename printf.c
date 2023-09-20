@@ -17,9 +17,9 @@ int _printf(const char *format, ...)
 	va_start(vl, format);
 
 	/* testing edge cases */
-	if (format == NULL || (format[0] == '%' && !format[1]))
+	if (format == NULL)
 		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 
 	while (*format != '\0')
