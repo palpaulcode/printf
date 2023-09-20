@@ -29,7 +29,15 @@ int print_integer(int n)
 {
 	int i = 0;
 
-	if (n < 0)
+	if (n == INT_MIN)
+	{
+		i += _putchar('-');
+		i += print_integer(INT_MAX / 10);
+		i += _putchar(INT_MAX % 10 + 1 +  '0');
+		return (i);
+
+	}
+	else if (n < 0)
 	{
 		i += _putchar('-');
 		n = n * -1;
@@ -49,7 +57,7 @@ int print_integer(int n)
  *
  * Return: no. of characters printed
  */
-int print_unsigned_int(unsigned int n)
+int print_unsigned_int((unsigned int) n)
 {
 	int i = 0;
 
