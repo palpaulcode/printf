@@ -1,17 +1,6 @@
 #include "main.h"
 
 /**
- * _putchar - print a character
- * @ch: the character to print
- *
- * Return: 1 for every character printed
- */
-int _putchar(char ch)
-{
-	return (write(1, &ch, 1));
-}
-
-/**
  * print_str - prints a string of characters for case 's'
  * @vl: va_list has the string to print
  *
@@ -89,3 +78,23 @@ int print_octal(va_list vl)
 
 	return (i);
 }
+
+/**
+ * print_bin - get int from va_list, convert it
+ * to binary and print the binary
+ * @vl: va_list argument
+ *
+ * Return: count of printed characters
+ */
+int print_bin(va_list vl)
+{
+	int n, ret = 0;
+
+	n = va_arg(vl, int);
+
+	ret += print_binary(n);
+
+	return (ret);
+
+}
+

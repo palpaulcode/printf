@@ -87,3 +87,33 @@ int print_unknown(const char *unknown)
 	return (i);
 }
 
+/**
+ * print_binary - convert int to binary and print
+ * the binary
+ * @n: the integer to print binary of
+ *
+ * Return: count of printed characters
+ */
+int print_binary(int n)
+{
+	int arr[32]; /* assuming 32 bit integer */
+	int x = 0, i = 0, j; /* */;
+
+	if (n == 0)
+	{
+		x += print_integer(0);
+	}
+	while (n > 0)
+	{
+		arr[i] = n % 2;
+		n = n / 2;
+		i++;
+	}
+	/* printing the binary */
+	for (j = i - 1; j >= 0;  j--)
+	{
+		x += print_integer(arr[j]);
+	}
+	return (x);
+}
+

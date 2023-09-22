@@ -32,6 +32,7 @@ int print_hex_X(va_list vl);
 int print_addr(va_list vl);
 int print_char(va_list vl);
 int print_pct(va_list vl);
+int print_bin(va_list);
 
 int print_string(char *);
 int print_integer(int);
@@ -42,5 +43,6 @@ int print_hexa_X(unsigned int);
 int print_address(void *);
 int print_unknown(const char *);
 int valid_format(const char *);
+int print_binary(int);
 
 #endif /* end PRINTF_H */

@@ -18,7 +18,7 @@ int get_case(va_list vl, const char *format)
 		{"%", print_pct},
 		{"d", print_int},
 		{"i", print_int},
-		/*{"b", },*/
+		{"b", print_bin},
 		{"u", print_unsgnd},
 		{"o", print_octal},
 		{"x", print_hex_x},
