@@ -94,26 +94,42 @@ int print_unknown(const char *unknown)
  *
  * Return: count of printed characters
  */
-int print_binary(int n)
+int print_binary(unsigned int n)
 {
-	int arr[32]; /* assuming 32 bit integer */
-	int x = 0, i = 0, j; /* */;
+	int x = 0, i, l;
+	char *str, *rts;
 
 	if (n == 0)
+		x += print_unsgnd_int(0);
+
+	l = base_count(n, 2);
+	str = malloc(sizeof(char) * l + 1);
+
+	if (str == NULL) /* handle malloc return */
+		return (-1);
+
+	/* get base of number and store it as string */
+	for (i = 0; n > 0; i++)
 	{
-		x += print_integer(0);
+		if (n % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		n /= 2;
 	}
-	while (n > 0)
-	{
-		arr[i] = n % 2;
-		n = n / 2;
-		i++;
-	}
-	/* printing the binary */
-	for (j = i - 1; j >= 0;  j--)
-	{
-		x += print_integer(arr[j]);
-	}
+
+	str[i] = '\0'; /* add terminating null byte to the string */
+	rts = reverse(str); /* get correct order of base */
+
+	if (rts == NULL)
+		return (-1);
+
+	x += print_string(rts);
+	
+	free(rts);
+	free(str);
+
 	return (x);
+	/* return (l); */
 }
 

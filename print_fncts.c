@@ -88,9 +88,13 @@ int print_octal(va_list vl)
  */
 int print_bin(va_list vl)
 {
-	int n, ret = 0;
+	int n;
+	int ret = 0;
 
 	n = va_arg(vl, int);
+
+	if (n < 0)
+		return (-1);
 
 	ret += print_binary(n);
 
