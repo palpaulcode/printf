@@ -13,6 +13,11 @@ int print_hexa_x(unsigned int n)
 	char mem[50];
 	char *str;
 
+	if (n == 0)
+	{
+		i += _putchar('0');
+		return (i);
+	}
 	str = &mem[49];
 	*str = '\0';
 
@@ -38,6 +43,12 @@ int print_hexa_X(unsigned int n)
 	char hex[] = "0123456789ABCDEF";
 	char mem[50];
 	char *str;
+
+	if (n == 0)
+	{
+		i += _putchar('0');
+		return (i);
+	}
 
 	str = &mem[49];
 	*str = '\0';
@@ -125,7 +136,7 @@ int print_binary(unsigned int n)
 		return (-1);
 
 	x += print_string(rts);
-	
+
 	free(rts);
 	free(str);
 
