@@ -29,17 +29,17 @@ int _printf(const char *format, ...)
 	while (*format != '\0')
 	{
 		if (*format != '%')
-		{
 			ret += _putchar(*format);
-			format++;
-		}
-		else
-		/*if (*format == '%')*/
+
+		if (*format == '%')
 		{
 			format++;
-			ret += get_case(vl, format);
-			format++;
+			if (valid_format(format) == 1) /* if not defined character */
+				ret += print_unknown(format);
+			else
+				ret += get_case(vl, format);
 		}
+		format++;
 	}
 	va_end(vl);
 	return (ret);

@@ -10,40 +10,29 @@
 int get_case(va_list vl, const char *format)
 {
 	int ret = 0; /* ret keeps track of printed characters */
+	int i = 0;
 
-	switch (*format)
+	case_t cases[] = {
+		{"c", print_char},
+		{"s", print_str},
+		{"%", print_pct},
+		{"d", print_int},
+		{"i", print_int},
+		/*{"b", },*/
+		{"u", print_unsgnd},
+		{"o", print_octal},
+		{"x", print_hex_x},
+		{"X", print_hex_X},
+		{"p", print_addr},
+		{NULL, NULL}
+	};
+
+	while (cases[i].ch)
 	{
-		case 'c':
-			ret += print_char(vl);
-			break;
-		case 's':
-			ret += print_str(vl);
-			break;
-		case '%':
-			ret += _putchar(*format);
-			break;
-		case 'd':
-		case 'i':
-			ret += print_int(vl);
-			break;
-		case 'u':
-			ret += print_unsgnd(vl);
-			break;
-		case 'o':
-			ret += print_octal(vl);
-			break;
-		case 'x':
-			ret += print_hex_x(vl);
-			break;
-		case 'X':
-			ret += print_hex_X(vl);
-			break;
-		case 'p':
-			ret += print_address(vl);
-			break;
-		default:
-			ret += print_unknown(format);
-			break;
+		if (*cases[i].ch == *format)
+			ret += cases[i].f(vl);
+		i++;
 	}
+
 	return (ret);
 }
