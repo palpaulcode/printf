@@ -99,6 +99,5 @@ int print_bin(va_list vl)
 	ret += print_binary(n);
 
 	return (ret);
-
 }
 
