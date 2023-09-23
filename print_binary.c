@@ -29,42 +29,33 @@ int print_bin(va_list vl)
  *
  * Return: count of printed characters
  */
-int print_binary(unsigned int n)
+int print_binary(int n)
 {
-	int x = 0, i, l;
-	char *str, *rts;
+	int x = 0, tmp;
+	char buffer[CHAR_BIT * sizeof(n) + 1];
+	char *ptr = &buffer[sizeof(buffer) - 1];
 
-	if (n == 0)
-		x += print_unsgnd_int(0);
+	*ptr = '\0'; /* terminating null byte */
 
-	l = base_count(n, 2);
-	str = malloc(sizeof(char) * l + 1);
+	tmp = n;
 
-	if (str == NULL) /* handle malloc return */
-		return (-1);
+	if (tmp > 0)
+		tmp = -tmp;
 
-	/* get base of number and store it as string */
-	for (i = 0; n > 0; i++)
+	do {
+		ptr--;
+		*ptr = '0' - tmp % 2;
+		tmp = tmp / 2;
+	} while (tmp);
+
+	if (n < 0)
 	{
-		if (n % 2 == 0)
-			str[i] = '0';
-		else
-			str[i] = '1';
-		n /= 2;
+		ptr--;
+		*ptr = '-';
 	}
 
-	str[i] = '\0'; /* add terminating null byte to the string */
-	rts = reverse(str); /* get correct order of base */
-
-	if (rts == NULL)
-		return (-1);
-
-	x += print_string(rts);
-
-	free(rts);
-	free(str);
+	x = print_string(ptr);
 
 	return (x);
-	/* return (l); */
 }
 

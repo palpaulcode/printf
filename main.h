@@ -47,7 +47,7 @@ int print_hexa_X(unsigned int);
 int print_address(void *);
 int print_unknown(const char *);
 int valid_format(const char *);
-int print_binary(unsigned int);
+int print_binary(int);
 int base_count(unsigned int, int);
 char *reverse(char *);
 char *rot13(char *);
