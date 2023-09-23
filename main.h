@@ -34,7 +34,8 @@ int print_hex_X(va_list vl);
 int print_addr(va_list vl);
 int print_char(va_list vl);
 int print_pct(va_list vl);
-int print_bin(va_list);
+int print_bin(va_list vl);
+int print_rev(va_list vl);
 
 int print_string(char *);
 int print_integer(int);

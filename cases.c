@@ -24,6 +24,7 @@ int get_case(va_list vl, const char *format)
 		{"x", print_hex_x},
 		{"X", print_hex_X},
 		{"p", print_addr},
+		{"r", print_rev},
 		{NULL, NULL}
 	};
 

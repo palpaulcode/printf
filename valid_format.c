@@ -11,7 +11,7 @@ int valid_format(const char *ch)
 {
 	int i = 0;
 	/* Add after X, S, R */
-	char defined[] = {'c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', 'p'};
+	char defined[] = {'c', 's', '%', 'd', 'i', 'b', 'u', 'o', 'x', 'X', 'p', 'r'};
 
 	while (defined[i])
 	{
