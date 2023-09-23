@@ -6,7 +6,7 @@
  *
  * Return: count of printed characters from rotated string
  */
-int encode_rot13(va_list vl)
+int print_rot13(va_list vl)
 {
 	char *str, *str2;
 	int count = 0, len;

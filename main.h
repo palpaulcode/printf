@@ -36,7 +36,7 @@ int print_char(va_list vl);
 int print_pct(va_list vl);
 int print_bin(va_list vl);
 int print_rev(va_list vl);
-int encode_rot13(va_list vl);
+int print_rot13(va_list vl);
 
 int print_string(char *);
 int print_integer(int);
