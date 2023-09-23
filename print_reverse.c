@@ -24,5 +24,7 @@ int print_rev(va_list vl)
 
 	count += print_string(str2);
 
+	free(str2);
+
 	return (count);
 }
