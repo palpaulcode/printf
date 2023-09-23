@@ -36,6 +36,7 @@ int print_char(va_list vl);
 int print_pct(va_list vl);
 int print_bin(va_list vl);
 int print_rev(va_list vl);
+int encode_rot13(va_list vl);
 
 int print_string(char *);
 int print_integer(int);
@@ -49,5 +50,6 @@ int valid_format(const char *);
 int print_binary(unsigned int);
 int base_count(unsigned int, int);
 char *reverse(char *);
+char *rot13(char *);
 
 #endif /* end PRINTF_H */
