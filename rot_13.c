@@ -14,7 +14,11 @@ int encode_rot13(va_list vl)
 	str = va_arg(vl, char *);
 
 	if (str == NULL)
-		return (-1);
+	{
+		str = "(null)";
+		count += print_string(str);
+		return (count);
+	}
 
 	len = strlen(str);
 
