@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * encode_rot13 - encodes a string using rot 13
+ * print_rot13 - encodes a string using rot 13
  * @vl: va_list argument
  *
  * Return: count of printed characters from rotated string
