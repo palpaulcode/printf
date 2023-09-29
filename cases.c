@@ -26,6 +26,7 @@ int get_case(va_list vl, const char *format)
 		{"p", print_addr},
 		{"r", print_rev},
 		{"R", print_rot13},
+		{"S", print_S},
 		{NULL, NULL}
 	};
 

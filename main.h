@@ -37,6 +37,7 @@ int print_pct(va_list vl);
 int print_bin(va_list vl);
 int print_rev(va_list vl);
 int print_rot13(va_list vl);
+int print_S(va_list vl);
 
 int print_string(char *);
 int print_integer(int);
@@ -51,5 +52,6 @@ int print_binary(int);
 int base_count(unsigned int, int);
 char *reverse(char *);
 char *rot13(char *);
+int print_str_s(char *);
 
 #endif /* end PRINTF_H */

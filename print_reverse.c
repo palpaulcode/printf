@@ -28,3 +28,37 @@ int print_rev(va_list vl)
 
 	return (count);
 }
+
+/**
+ * reverse - reverse a string
+ * @str: the string to reverse
+ *
+ * Return: pointer to the reversed string
+ */
+char *reverse(char *str)
+{
+	int ln, hd, i;
+	char *final, temp;
+
+	ln = strlen(str);
+
+	final = malloc(sizeof(char) * ln + 1);
+
+	if (final == NULL) /* handle malloc return */
+		return (NULL);
+
+	for (i = 0; i < ln; i++)
+		final[i] = str[i];
+	final[i] = '\0';
+
+	/* reverse the string here */
+	for (hd = 0; hd < ln; hd++, ln--)
+	{
+		temp = final[ln - 1];
+		final[ln - 1] = final[hd];
+		final[hd] = temp;
+	}
+
+	return (final);
+}
+

@@ -12,7 +12,7 @@ int print_unsgnd_int(unsigned int n)
 
 	if (n == 0)
 	{
-		i += _putchar(0);
+		i += _putchar('0');
 		return (i);
 	}
 
