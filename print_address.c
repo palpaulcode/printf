@@ -32,6 +32,14 @@ int print_address(void *addr)
 	unsigned long tmp = n;
 	char hex[16];
 	char hex_d[16] = "0123456789abcdef";
+	char *str = "(nil)";
+
+	if (addr == NULL)
+	{
+		count += print_string(str);
+		return (count);
+	}
+
 
 	while (tmp != 0)
 	{
