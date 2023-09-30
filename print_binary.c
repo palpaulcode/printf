@@ -9,15 +9,18 @@
  */
 int print_bin(va_list vl)
 {
-	int n;
+	intmax_t n;
+	uintmax_t un;
 	int ret = 0;
 
-	n = va_arg(vl, int);
+	n = va_arg(vl, intmax_t);
 
 	if (n < 0)
-		return (-1);
+		un = -(uintmax_t)n;
+	else
+		un = (uintmax_t)n;
 
-	ret += print_binary(n);
+	ret += print_binary(un);
 
 	return (ret);
 }
@@ -29,33 +32,27 @@ int print_bin(va_list vl)
  *
  * Return: count of printed characters
  */
-int print_binary(int n)
+int print_binary(uintmax_t n)
 {
-	int x = 0, tmp;
-	char buffer[CHAR_BIT * sizeof(n) + 1];
-	char *ptr = &buffer[sizeof(buffer) - 1];
-
-	*ptr = '\0'; /* terminating null byte */
+	int len = 0, i, count = 0;
+	uintmax_t tmp;
 
 	tmp = n;
-
-	if (tmp > 0)
-		tmp = -tmp;
-
-	do {
-		ptr--;
-		*ptr = '0' - tmp % 2;
-		tmp = tmp / 2;
-	} while (tmp);
-
-	if (n < 0)
+	/* calculate length of number when printed in binary */
+	while (tmp > 0)
 	{
-		ptr--;
-		*ptr = '-';
+		tmp >>= 1;
+		len++;
 	}
 
-	x = print_string(ptr);
+	/* print binary representation */
+	for (i = len - 1; i >= 0; i--)
+	{
+		_putchar(((n >> i) & 1) ? '1' : '0');
+	}
 
-	return (x);
+	count += len;
+
+	return (count);
 }
 
