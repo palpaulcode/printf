@@ -30,6 +30,12 @@ int print_octal_nums(unsigned int n)
 	int oct[100]; /* stores octal characters*/
 	int i = 0, j;
 
+	if (n == 0)
+	{
+		c += _putchar('0');
+		return (c);
+	}
+
 	while (n != 0)
 	{
 		oct[i] = n % 8;
